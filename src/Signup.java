@@ -250,8 +250,7 @@ public class Signup extends JFrame implements ActionListener {
 
         String fName = textFname.getText();
 
-        String Mname = textMname.getText();
-
+        String dob = dayCombo.getSelectedItem() + "-" + monthCombo.getSelectedItem() + "-" + yearCombo.getSelectedItem();
 
         String gender = "";
         if (r1.isSelected()) gender = "Male";
@@ -273,14 +272,16 @@ public class Signup extends JFrame implements ActionListener {
 
         String state = textState.getText();
 
-        String dob = dayCombo.getSelectedItem() + "-" + monthCombo.getSelectedItem() + "-" + yearCombo.getSelectedItem();
+
+        String Mname = textMname.getText();
+
 
         try{
             if (textName.getText().equals("")){
                 JOptionPane.showMessageDialog(null,"please fill the fields" );
             }else {
                 sql sql1 = new sql();
-                String q = "insert into signup values('"+formNo+"','"+name+"','"+fName+"','"+Mname+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+pinCode+"','"+state+"','"+dob+"')";
+                String q = "insert into signup values('"+formNo+"','"+name+"','"+fName+"','"+dob+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+pinCode+"','"+state+"','"+Mname+"')";
                 sql1.statement.executeUpdate(q);
                 new Signup2(first);
                 setVisible(false);

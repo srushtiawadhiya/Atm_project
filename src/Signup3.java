@@ -206,41 +206,76 @@ public class Signup3 extends JFrame implements ActionListener {
         long first3 = (ran.nextLong() % 9000L)+ 1000L;
         String pin = "" + Math.abs(first3);
 
-        String fac = "";
-        if(c1.isSelected()){
-            fac = fac+"ATM CARD ";
-        } else if (c2.isSelected()) {
-            fac = fac+"Internet Banking";
-        } else if (c3.isSelected()) {
-            fac = fac+"Mobile Banking";
-        } else if (c4.isSelected()) {
-            fac = fac+"EMAIL Alerts";
-        } else if (c5.isSelected()) {
-            fac=fac+"Cheque Book";
-        } else if (c6.isSelected()) {
-            fac=fac+"E-Statement";
-        }
+        // String fac = "";
+        // if(c1.isSelected()){
+        //     fac = fac+"ATM CARD ";
+        // } else if (c2.isSelected()) {
+        //     fac = fac+"Internet Banking";
+        // } else if (c3.isSelected()) {
+        //     fac = fac+"Mobile Banking";
+        // } else if (c4.isSelected()) {
+        //     fac = fac+"EMAIL Alerts";
+        // } else if (c5.isSelected()) {
+        //     fac=fac+"Cheque Book";
+        // } else if (c6.isSelected()) {
+        //     fac=fac+"E-Statement";
+        // }
+        StringBuilder fac = new StringBuilder();
 
+if (c1.isSelected()) fac.append("ATM CARD ");
+if (c2.isSelected()) fac.append("Internet Banking ");
+if (c3.isSelected()) fac.append("Mobile Banking ");
+if (c4.isSelected()) fac.append("EMAIL Alerts ");
+if (c5.isSelected()) fac.append("Cheque Book ");
+if (c6.isSelected()) fac.append("E-Statement");
+
+        // try {
+        //     if (e.getSource()==s){
+        //         if (atype.equals("")){
+        //             JOptionPane.showMessageDialog(null,"Fill all the fields");
+        //         }else {
+        //             sql c1 = new sql();
+        //             String q1 = "insert into signupthree values('"+formNo+"', '"+atype+"','"+cardno+"','"+pin+"','"+fac+"')";
+        //             String q2 = "insert into login values('"+formNo+"','"+cardno+"','"+pin+"')";
+        //             c1.statement.executeUpdate(q1);
+        //             c1.statement.executeUpdate(q2);
+        //             JOptionPane.showMessageDialog(null,"Card Number : "+cardno+"\n Pin : "+pin );
+        //             // new Deposit(pin);
+        //             setVisible(false);
+        //         }
+        //     } else if (e.getSource()==c) {
+        //         System.exit(0);
+        //     }
+
+        // }catch (Exception E){
+        //     E.printStackTrace();
+        // }
         try {
-            if (e.getSource()==s){
-                if (atype.equals("")){
-                    JOptionPane.showMessageDialog(null,"Fill all the fields");
-                }else {
+            if (e.getSource() == s) {
+                if (atype == null || atype.trim().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please select an Account Type");
+                } else {
                     sql c1 = new sql();
-                    String q1 = "insert into signupthree values('"+formNo+"', '"+atype+"','"+cardno+"','"+pin+"','"+fac+"')";
-                    String q2 = "insert into login values('"+formNo+"','"+cardno+"','"+pin+"')";
+                    String q1 = "INSERT INTO signup3 VALUES('" + formNo + "', '" + atype + "', '" + cardno + "', '" + pin + "', '" + fac.toString().trim() + "')";
+                    String q2 = "INSERT INTO login VALUES('" + formNo + "', '" + cardno + "', '" + pin + "')";
+                    
                     c1.statement.executeUpdate(q1);
                     c1.statement.executeUpdate(q2);
-                    JOptionPane.showMessageDialog(null,"Card Number : "+cardno+"\n Pin : "+pin );
+                    
+                    JOptionPane.showMessageDialog(null, "Card Number: " + cardno + "\nPin: " + pin);
+                    
+                    // Optional: open next window (e.g., Deposit screen)
                     // new Deposit(pin);
+                    
                     setVisible(false);
                 }
-            } else if (e.getSource()==c) {
+            } else if (e.getSource() == c) {
                 System.exit(0);
             }
-
-        }catch (Exception E){
-            E.printStackTrace();
+        
+        } catch (Exception ex) {
+            ex.printStackTrace(); // Print the error to debug in terminal
+            JOptionPane.showMessageDialog(null, "Something went wrong: " + ex.getMessage());
         }
 
     }

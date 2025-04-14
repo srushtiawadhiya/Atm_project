@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "deposit",
+            "request": "launch",
+            "mainClass": "src.deposit",
+            "projectName": "project1-atm_6cfe03d"
+        },
+        {
+            "type": "java",
+            "name": "MainClass",
+            "request": "launch",
+            "mainClass": "src.MainClass",
+            "projectName": "project1-atm_6cfe03d"
+        },
+        {
+            "type": "java",
+            "name": "main_class",
+            "request": "launch",
+            "mainClass": "src.main_class",
+            "projectName": "project1-atm_6cfe03d"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Login",
+            "request": "launch",
+            "mainClass": "src.Login",
+            "projectName": "project1-atm_6cfe03d"
+        },
+        {
+            "type": "java",
+            "name": "Signup",
+            "request": "launch",
+            "mainClass": "src.Signup",
+            "projectName": "project1-atm_6cfe03d"
+        },
+        {
+            "type": "java",
+            "name": "Signup2",
+            "request": "launch",
+            "mainClass": "src.Signup2",
+            "projectName": "project1-atm_6cfe03d"
+        },
+        {
+            "type": "java",
+            "name": "Signup3",
+            "request": "launch",
+            "mainClass": "src.Signup3",
+            "projectName": "project1-atm_6cfe03d"
+        }
+    ]
+}

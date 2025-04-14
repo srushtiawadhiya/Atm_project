@@ -4,12 +4,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 
 
@@ -22,7 +24,7 @@ public class Login extends JFrame implements ActionListener{
     Login(){ //construtor
         super("Bank System");//headline
 
-        String imagePath = "C:/Users/srush/c language/PROJECTS/java/project1-atm/src/icon/bank.png";
+        String imagePath = "C:/Users/srush/c language/PROJECTS/java/project1-atm/src/icon/backbg.png";
         ImageIcon i1 = new ImageIcon(imagePath);
         Image i2 = i1.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
@@ -109,20 +111,35 @@ public class Login extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e){
-     try{
-            if(e.getSource() ==button1){
+     try {
+            if (e.getSource() == button1) {
+                sql s = new sql();
+                String cardno = textField2.getText();
+                String pin = new String(passwordField3.getPassword());
 
-            }else if(e.getSource()==button2){
-                 textField2.setText("");
+                String q = "SELECT * FROM login WHERE Card_Number = '" + cardno + "' AND Pin = '" + pin + "'";
+                ResultSet resultSet = s.statement.executeQuery(q);
+
+                if (resultSet.next()) {
+                    setVisible(false);
+                    new MainClass(pin);  // Make sure MainClass sets visibility
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Card Number or PIN");
+                }
+
+            } else if (e.getSource() == button2) {
+                textField2.setText("");
                 passwordField3.setText("");
-            }else if(e.getSource() == button3){
-             
-            }
-            
-        }catch(Exception E){
-              E.printStackTrace();
-      }
 
+            } else if (e.getSource() == button3) {
+                // SIGN UP logic placeholder
+                JOptionPane.showMessageDialog(null, "Sign Up clicked!");
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        }
     }
 
     public static void main(String[] args) {
