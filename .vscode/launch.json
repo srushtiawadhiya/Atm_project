@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Pin",
+            "request": "launch",
+            "mainClass": "src.Pin",
+            "projectName": "project1-atm_6cfe03d"
+        },
+        {
+            "type": "java",
             "name": "BalanceEnquriy",
             "request": "launch",
             "mainClass": "src.BalanceEnquriy",
