@@ -41,14 +41,14 @@ public class Login extends JFrame implements ActionListener{
         add(iimage);
 
         label1 = new JLabel("WELCOME TO ATM ");// jlabel ka kaam hota ha kisi text ko frame ami show kar va na 
-        label1.setForeground(Color.WHITE);
+        label1.setForeground(Color.BLACK);
         label1.setFont(new Font("AvantGarde",Font.BOLD,38));
         label1.setBounds(230,125,450,40);
         add(label1);
 
         label2 = new JLabel("Card No:");
         label2.setFont(new Font("Ralway",Font.BOLD,28));
-        label2.setForeground(Color.WHITE);
+        label2.setForeground(Color.BLACK);
         label2.setBounds(150,190,375,30);
         add(label2);
 
@@ -59,7 +59,7 @@ public class Login extends JFrame implements ActionListener{
 
         label3 = new JLabel("Pin No:");
         label3.setFont(new Font("Ralway",Font.BOLD,28));
-        label3.setForeground(Color.WHITE);
+        label3.setForeground(Color.BLACK);
         label3.setBounds(150,250,375,30);
         add(label3);
 
